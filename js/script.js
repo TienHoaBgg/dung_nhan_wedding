@@ -26,7 +26,7 @@ function initNavbar() {
 // ===== COUNTDOWN TIMER =====
 function initCountdown() {
     // Set wedding date (change this to your actual wedding date)
-    const weddingDate = new Date('2025-07-01T07:30:00').getTime();
+    const weddingDate = new Date('2025-07-01T15:30:00').getTime();
     
     function updateCountdown() {
         const now = new Date().getTime();
@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Extract date and time (you may need to adjust this based on your date format)
             const eventData = {
                 title: title,
-                date: '2025-07-01T07:30:00', // You should extract this from the actual event data
+                date: '2025-07-01T15:30:00', // You should extract this from the actual event data
                 description: `Đám cưới - ${title}`,
                 location: location.replace('📍 ', '')
             };
