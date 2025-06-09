@@ -106,18 +106,96 @@ function initVideoPlayer() {
 
 // ===== GALLERY FUNCTIONALITY =====
 function initGallery() {
+    // List of gallery images (auto-loaded from directory)
+    const galleryImages = [
+        '0S7A6388.JPG',
+        '0S7A6411.JPG',
+        '0S7A6517.JPG',
+        '0S7A6560.JPG',
+        '0S7A7118.JPG',
+        '0S7A6613.JPG',
+        '0S7A6820.JPG',
+        '0S7A6883.JPG',
+        '0S7A6924.JPG',
+        '0S7A6983.JPG',
+        '0S7A7029.JPG',
+        '0S7A7097.JPG',
+        '0X5A6054.JPG'
+    ];
+
+    const galleryContainer = document.getElementById('galleryContainer');
+
+    // Create gallery items dynamically
+    galleryImages.forEach((imageName, index) => {
+        const galleryItem = createGalleryItem(imageName, index + 1);
+        galleryContainer.appendChild(galleryItem);
+    });
+
+    // Add click event listeners to all gallery items
     const galleryItems = document.querySelectorAll('.gallery-item');
-    
     galleryItems.forEach(item => {
         item.addEventListener('click', function() {
             const img = this.querySelector('img');
             const imgSrc = img.src;
             const imgAlt = img.alt;
-            
+
             // Create modal for image preview
             createImageModal(imgSrc, imgAlt);
         });
     });
+
+    // Optimize masonry layout after images load
+    optimizeMasonryLayout();
+
+    // Re-optimize layout on window resize
+    window.addEventListener('resize', debounce(optimizeMasonryLayout, 250));
+}
+
+function createGalleryItem(imageName, index) {
+    const galleryItem = document.createElement('div');
+    galleryItem.className = 'gallery-item';
+
+    const img = document.createElement('img');
+    img.src = `images/gallerys/${imageName}`;
+    img.alt = `Wedding Photo ${index}`;
+    img.className = 'img-fluid';
+
+    const overlay = document.createElement('div');
+    overlay.className = 'gallery-overlay';
+    overlay.innerHTML = '<i class="fas fa-search-plus"></i>';
+
+    galleryItem.appendChild(img);
+    galleryItem.appendChild(overlay);
+
+    // Add loading effect
+    img.addEventListener('load', function() {
+        galleryItem.style.opacity = '1';
+        galleryItem.style.transform = 'scale(1)';
+    });
+
+    // Set initial loading state
+    galleryItem.style.opacity = '0';
+    galleryItem.style.transform = 'scale(0.8)';
+    galleryItem.style.transition = 'all 0.5s ease';
+
+    return galleryItem;
+}
+
+// Function to optimize masonry layout
+function optimizeMasonryLayout() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const container = document.getElementById('galleryContainer');
+
+    // Add a small delay to ensure images are loaded
+    setTimeout(() => {
+        galleryItems.forEach(item => {
+            const img = item.querySelector('img');
+            if (img.complete) {
+                item.style.opacity = '1';
+                item.style.transform = 'scale(1)';
+            }
+        });
+    }, 100);
 }
 
 function createImageModal(src, alt) {
