@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Thiệp Mời Cưới Dung & Nhân</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Demo specific styles */
+        .demo-image {
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3') center/cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <span class="initials">D & N</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#couple">Cặp đôi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#story">Chuyện tình yêu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Album Hình Cưới</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#events">Sự kiện cưới</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gift">Gửi quà mừng</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <div class="hero-content">
+                        <h1 class="couple-names">
+                            <span class="groom-name">Nguyễn Nhân</span>
+                            <span class="ampersand">&</span>
+                            <span class="bride-name">Thuỳ Dung</span>
+                        </h1>
+                        <p class="wedding-date">01 Tháng 7 2025</p>
+                        <div class="save-date">
+                            <h3>Save the Date</h3>
+                            <p>For the wedding of</p>
+                            <h4>Nguyễn Nhân & Thuỳ Dung</h4>
+                            <p class="quote">Một lời chúc của bạn chắc chắn sẽ làm cho đám cưới của chúng tôi có thêm một niềm hạnh phúc!</p>
+                        </div>
+                        
+                        <!-- Countdown Timer -->
+                        <div class="countdown-timer">
+                            <div class="countdown-item">
+                                <span id="days">00</span>
+                                <label>Ngày</label>
+                            </div>
+                            <div class="countdown-item">
+                                <span id="hours">00</span>
+                                <label>Giờ</label>
+                            </div>
+                            <div class="countdown-item">
+                                <span id="minutes">00</span>
+                                <label>Phút</label>
+                            </div>
+                            <div class="countdown-item">
+                                <span id="seconds">00</span>
+                                <label>Giây</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Couple Section -->
+    <section id="couple" class="couple-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Cô dâu & Chú rể</h2>
+                    <p class="section-subtitle">Tình yêu là điều kiện trong đó hạnh phúc của người khác là điều cần thiết cho chính bạn.</p>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <!-- Groom -->
+                <div class="col-lg-5">
+                    <div class="couple-card groom-card">
+                        <div class="couple-image">
+                            <div class="demo-image" style="width: 100%; height: 100%; border-radius: 50%;">
+                                Ảnh Chú Rể<br>
+                                <small>200x200px</small>
+                            </div>
+                        </div>
+                        <div class="couple-info">
+                            <h3>Nguyễn Nhân</h3>
+                            <p>Là một người lính quân đội nhân dân Việt Nam, đang công tác tại trường bắn quốc gia. Là một người hiền lành và ít nói. Luôn coi trọng tình cảm và yêu thương gia đình.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Heart Icon -->
+                <div class="col-lg-2 text-center">
+                    <div class="heart-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                
+                <!-- Bride -->
+                <div class="col-lg-5">
+                    <div class="couple-card bride-card">
+                        <div class="couple-image">
+                            <div class="demo-image" style="width: 100%; height: 100%; border-radius: 50%;">
+                                Ảnh Cô Dâu<br>
+                                <small>200x200px</small>
+                            </div>
+                        </div>
+                        <div class="couple-info">
+                            <h3>Thuỳ Dung</h3>
+                            <p>Cô gái đến từ vùng đất vải Lục Ngạn, dịu dàng và sống nội tâm. Từ nhỏ đã yêu sách, lớn lên theo đuổi ngành Dược với mong muốn mang lại điều tốt lành cho mọi người.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gift Button -->
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <a href="#gift" class="btn btn-primary btn-rsvp">
+                        <i class="fas fa-gift"></i>
+                        Gửi quà mừng
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video" class="video-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Xem video cưới của chúng tôi</h2>
+                    <p class="section-subtitle">Tình yêu không làm cho thế giới quay tròn. Tình yêu là những gì làm cho chuyến đi đáng giá.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="video-container">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                            <p>Click để xem video cưới</p>
+                        </div>
+                        <!-- Video sẽ được load khi click -->
+                        <iframe id="wedding-video" src="" frameborder="0" allowfullscreen style="display: none;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story" class="story-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Chuyện tình yêu</h2>
+                    <p class="section-subtitle">Tình yêu không chỉ là một danh từ - nó là một động từ; nó còn hơn cả một cảm giác - đó là sự quan tâm, chia sẻ, giúp đỡ, hy sinh.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="timeline">
+                        <!-- Timeline Item 1 -->
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <span>December 12 2020</span>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-image">
+                                    <div class="demo-image" style="width: 100%; height: 200px;">
+                                        Ảnh Lần Đầu Gặp Gỡ<br>
+                                        <small>600x400px</small>
+                                    </div>
+                                </div>
+                                <div class="timeline-text">
+                                    <h4>Bạn có tin vào tình yêu online không?</h4>
+                                    <p>Tôi đã từng không tin vào tình yêu online. Đã từng nghĩ làm sao có thể thích một người chưa từng gặp mặt? Vậy mà giờ đây tôi lại đang như vậy, bây giờ tôi đã hiểu: thế giới ảo tình yêu thật đấy!!!</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Item 2 -->
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <span>August 04 2021</span>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-text">
+                                    <h4>Lời tỏ tình dễ thương</h4>
+                                    <p>Ngày ấy, tôi 21! Một mình giữa phố thị nấp tập. Mỗi chiều cuối tuần thường chạy xe vòng quanh qua những con phố, len lỏi trong từng dòng người tấp nập. Nhưng rồi một ngày đẹp trời, người con trai ấy xuất hiện...</p>
+                                </div>
+                                <div class="timeline-image">
+                                    <div class="demo-image" style="width: 100%; height: 200px;">
+                                        Ảnh Lời Tỏ Tình<br>
+                                        <small>600x400px</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Item 3 -->
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <span>May 10 2023</span>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-image">
+                                    <div class="demo-image" style="width: 100%; height: 200px;">
+                                        Ảnh Cầu Hôn<br>
+                                        <small>600x400px</small>
+                                    </div>
+                                </div>
+                                <div class="timeline-text">
+                                    <h4>Phút giây cầu hôn</h4>
+                                    <p>5 năm bên nhau không phải là quãng thời gian quá dài, nhưng đủ cho chúng ta nhận ra được rất nhiều điều. Giây phút anh ngỏ lời "Làm vợ anh nhé!", em đã nguyện ý đời này, đi đâu cũng được, miễn là cùng anh.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Item 4 -->
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <span>July 28 2024</span>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-text">
+                                    <h4>Ngày lễ đính hôn</h4>
+                                    <p>"Tiếng trái tim đôi ta đập thật nhanh. Thì thầm lời yêu thương. Ngày tình về chung đôi..." Sau bao nhiêu chờ đợi, cuối cùng ngày vui của chúng ta cũng tới rồi. Cảm ơn vì mình đã luôn là một phần trong cuộc sống của nhau.</p>
+                                </div>
+                                <div class="timeline-image">
+                                    <div class="demo-image" style="width: 100%; height: 200px;">
+                                        Ảnh Đính Hôn<br>
+                                        <small>600x400px</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift Section -->
+    <section id="gift" class="gift-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Gửi quà mừng cưới</h2>
+                    <p class="section-subtitle">Cảm ơn bạn đã dành thời gian tham dự đám cưới của chúng tôi!</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="gift-content">
+                        <div class="row">
+                            <!-- QR Code 1 -->
+                            <div class="col-md-6 mb-4">
+                                <div class="qr-card">
+                                    <div class="qr-header">
+                                        <h4>Chú rể</h4>
+                                    </div>
+                                    <div class="qr-code">
+                                        <div class="demo-image" style="width: 200px; height: 200px; margin: 0 auto;">
+                                            QR Code<br>Chú Rể<br>
+                                            <small>200x200px</small>
+                                        </div>
+                                    </div>
+                                    <div class="bank-info">
+                                        <h5>NGUYỄN NHÂN</h5>
+                                        <p class="account-number">1050184342</p>
+                                        <p class="bank-name">Ngân hàng Vietcombank</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- QR Code 2 -->
+                            <div class="col-md-6 mb-4">
+                                <div class="qr-card">
+                                    <div class="qr-header">
+                                        <h4>Cô dâu</h4>
+                                    </div>
+                                    <div class="qr-code">
+                                        <div class="demo-image" style="width: 200px; height: 200px; margin: 0 auto;">
+                                            QR Code<br>Cô Dâu<br>
+                                            <small>200x200px</small>
+                                        </div>
+                                    </div>
+                                    <div class="bank-info">
+                                        <h5>THUỲ DUNG</h5>
+                                        <p class="account-number">1050398747</p>
+                                        <p class="bank-name">Ngân hàng Vietcombank</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-12 text-center">
+                                <div class="gift-note">
+                                    <p><i class="fas fa-heart text-danger"></i> Tình cảm của bạn là món quà quý giá nhất với chúng tôi! <i class="fas fa-heart text-danger"></i></p>
+                                    <p class="small text-muted">Quét mã QR hoặc chuyển khoản theo thông tin tài khoản</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thank You Section -->
+    <section class="thank-you-section">
+        <div class="thank-you-overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="thank-you-content">
+                        <h1 class="thank-you-title">Thank you!</h1>
+                        <p class="thank-you-subtitle">Sự hiện diện của bạn sẽ khiến hôn lễ của chúng tôi trở nên ý nghĩa hơn bao giờ hết!</p>
+                        <div class="thank-you-hearts">
+                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
