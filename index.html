@@ -15,6 +15,21 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop preload="auto">
+        <source src="audio/BeautifulInWhite-ShaneFilan-524801.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Control Button -->
+    <div class="music-control" id="musicControl">
+        <button id="musicToggle" class="music-btn" title="Bật/Tắt nhạc nền">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+
+    <!-- Floating Hearts Container -->
+    <div class="floating-hearts" id="floatingHearts"></div>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
@@ -134,7 +149,7 @@
                         </div>
                         <div class="couple-info">
                             <h3>Thuỳ Dung</h3>
-                            <p>Cô gái đến từ vùng đất vải Lục Ngạn, dịu dàng và sống nội tâm. Theo đuổi ngành Dược với mong muốn mang lại điều tốt lành cho mọi người.<br>
+                            <p>Cô gái đến từ vùng đất vải thiều Lục Ngạn, dịu dàng và sống nội tâm. Theo đuổi ngành Dược với mong muốn mang lại điều tốt lành cho mọi người.<br>
                             Không dừng lại ở những đơn thuốc, cô còn học thêm tiếng Trung như một cách làm giàu tâm hồn, rồi bén duyên với nghề dạy học. Hiện cô vừa chăm sóc tiệm thuốc nhỏ của mình, vừa truyền cảm hứng qua từng buổi dạy – nhẹ nhàng, bền bỉ và đầy yêu thương.</p>
                             <div class="social-links">
                                 <a href="https://www.facebook.com/gaby.bg.1232" class="social-link"><i class="fab fa-facebook"></i></a>
@@ -211,7 +226,7 @@
                     <div class="event-card-new">
                         <!-- Event Image -->
                         <div class="event-image">
-                            <img src="images/event_nam.JPG" alt="Cặp đôi" class="img-fluid">
+                            <img src="images/event_nam.jpg" alt="Cặp đôi" class="img-fluid">
                         </div>
 
                         <!-- Event Content -->
@@ -304,7 +319,7 @@
                                         <img src="images/qr-bride.jpg" alt="QR Code Cô dâu" class="img-fluid">
                                     </div>
                                     <div class="bank-info">
-                                        <h5>NGUYỄN THỊ THÚY DUNG</h5>
+                                        <h5>NGUYỄN THỊ THÙY DUNG</h5>
                                         <p class="account-number">1018566877</p>
                                         <p class="bank-name">Ngân hàng Vietcombank</p>
                                     </div>

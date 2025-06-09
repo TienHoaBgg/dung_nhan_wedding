@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initGallery();
     initGiftSection();
     initAnimations();
+    initBackgroundMusic();
+    initFloatingHearts();
 });
 
 // ===== NAVBAR FUNCTIONALITY =====
@@ -68,8 +70,18 @@ function initSmoothScrolling() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
-                
+                // Calculate navbar offset based on screen size
+                let navbarOffset = 80; // Default for desktop
+                if (window.innerWidth <= 480) {
+                    navbarOffset = 110; // Extra small screens
+                } else if (window.innerWidth <= 768) {
+                    navbarOffset = 100; // Mobile screens
+                } else if (window.innerWidth <= 992) {
+                    navbarOffset = 90; // Tablet screens
+                }
+
+                const offsetTop = targetSection.offsetTop - navbarOffset;
+
                 window.scrollTo({
                     top: offsetTop,
                     behavior: 'smooth'
@@ -415,4 +427,153 @@ function scrollToTop() {
         top: 0,
         behavior: 'smooth'
     });
+}
+
+// ===== BACKGROUND MUSIC =====
+function initBackgroundMusic() {
+    const audio = document.getElementById('backgroundMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    const musicIcon = musicToggle.querySelector('i');
+
+    let isPlaying = false;
+    let userInteracted = false;
+
+    // Handle user interaction for autoplay policy
+    function handleFirstInteraction() {
+        if (!userInteracted) {
+            userInteracted = true;
+            // Try to play music after first user interaction
+            setTimeout(() => {
+                playMusic();
+            }, 1000);
+        }
+    }
+
+    // Add event listeners for first user interaction
+    document.addEventListener('click', handleFirstInteraction, { once: true });
+    document.addEventListener('keydown', handleFirstInteraction, { once: true });
+    document.addEventListener('scroll', handleFirstInteraction, { once: true });
+
+    function playMusic() {
+        audio.play().then(() => {
+            isPlaying = true;
+            musicToggle.classList.add('playing');
+            musicToggle.classList.remove('muted');
+            musicIcon.className = 'fas fa-music';
+            musicToggle.title = 'Tắt nhạc nền';
+        }).catch(error => {
+            console.log('Autoplay prevented:', error);
+            isPlaying = false;
+            musicToggle.classList.remove('playing');
+            musicToggle.classList.add('muted');
+            musicIcon.className = 'fas fa-volume-mute';
+            musicToggle.title = 'Bật nhạc nền';
+        });
+    }
+
+    function pauseMusic() {
+        audio.pause();
+        isPlaying = false;
+        musicToggle.classList.remove('playing');
+        musicToggle.classList.add('muted');
+        musicIcon.className = 'fas fa-volume-mute';
+        musicToggle.title = 'Bật nhạc nền';
+    }
+
+    // Music toggle button click handler
+    musicToggle.addEventListener('click', function() {
+        if (isPlaying) {
+            pauseMusic();
+        } else {
+            playMusic();
+        }
+    });
+
+    // Set initial volume
+    audio.volume = 0.3;
+
+    // Handle audio events
+    audio.addEventListener('ended', function() {
+        // Loop is handled by the loop attribute, but we can add custom logic here
+        isPlaying = false;
+        musicToggle.classList.remove('playing');
+    });
+
+    audio.addEventListener('play', function() {
+        isPlaying = true;
+        musicToggle.classList.add('playing');
+        musicToggle.classList.remove('muted');
+    });
+
+    audio.addEventListener('pause', function() {
+        isPlaying = false;
+        musicToggle.classList.remove('playing');
+        musicToggle.classList.add('muted');
+    });
+}
+
+// ===== FLOATING HEARTS =====
+function initFloatingHearts() {
+    const heartsContainer = document.getElementById('floatingHearts');
+    const heartSymbols = ['♥', '💕', '💖', '💗', '💝'];
+
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.className = 'floating-heart';
+
+        // Random heart symbol
+        heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+
+        // Random animation variation
+        const animations = ['floatDown', 'floatDownLeft', 'floatDownRight', 'floatDiagonal'];
+        const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+
+        // Set position and animation class based on animation type
+        if (randomAnimation === 'floatDownLeft') {
+            heart.classList.add('left');
+            heart.style.left = (60 + Math.random() * 40) + '%'; // Start from right side
+        } else if (randomAnimation === 'floatDownRight') {
+            heart.classList.add('right');
+            heart.style.left = (0 + Math.random() * 40) + '%'; // Start from left side
+        } else if (randomAnimation === 'floatDiagonal') {
+            heart.classList.add('diagonal');
+            heart.style.left = (70 + Math.random() * 30) + '%'; // Start from top-right area
+        } else {
+            // floatDown - straight down
+            heart.style.left = Math.random() * 100 + '%'; // Any horizontal position
+        }
+
+        // Random animation duration
+        const duration = 6 + Math.random() * 4; // 6-10 seconds (faster than before)
+        heart.style.animationDuration = duration + 's';
+
+        // Random delay
+        heart.style.animationDelay = Math.random() * 1 + 's';
+
+        heartsContainer.appendChild(heart);
+
+        // Remove heart after animation completes
+        setTimeout(() => {
+            if (heart.parentNode) {
+                heart.remove();
+            }
+        }, (duration + 2) * 1000);
+    }
+
+    // Create hearts periodically
+    function startHeartAnimation() {
+        createHeart();
+
+        // Random interval between 1.5-4 seconds (more frequent)
+        const nextInterval = 1500 + Math.random() * 2500;
+        setTimeout(startHeartAnimation, nextInterval);
+    }
+
+    // Start the heart animation after a short delay
+    setTimeout(startHeartAnimation, 2000);
+
+    // Create initial hearts
+    for (let i = 0; i < 4; i++) {
+        setTimeout(() => createHeart(), i * 800);
+    }
 }
