@@ -445,7 +445,7 @@ function initBackgroundMusic() {
             // Try to play music after first user interaction
             setTimeout(() => {
                 playMusic();
-            }, 1000);
+            }, 5000);
         }
     }
 
@@ -515,7 +515,7 @@ function initBackgroundMusic() {
 // ===== FLOATING HEARTS =====
 function initFloatingHearts() {
     const heartsContainer = document.getElementById('floatingHearts');
-    const heartSymbols = ['♥', '💕', '💖', '💗', '💝'];
+    const heartSymbols = ['💕', '💖', '💗', '💝', '❣️', '💌', '❤️'];
 
     function createHeart() {
         const heart = document.createElement('div');

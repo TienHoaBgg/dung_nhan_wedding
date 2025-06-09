@@ -694,10 +694,11 @@ html {
 /* Date Display */
 .event-date-display {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: center;
     margin: 2rem 0;
-    gap: 2rem;
+    gap: 2.5rem;
+    position: relative;
 }
 
 .date-left, .date-right {
@@ -706,24 +707,28 @@ html {
     font-weight: 500;
     position: relative;
     white-space: nowrap;
+    min-width: fit-content;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
 }
 
 .date-left::after, .date-right::before {
     content: '';
     position: absolute;
     top: 50%;
-    width: 12px;
+    width: 15px;
     height: 1px;
     background: #8B7355;
     transform: translateY(-50%);
 }
 
 .date-left::after {
-    left: calc(100% + 15px);
+    left: calc(100% + 10px);
 }
 
 .date-right::before {
-    right: calc(100% + 15px);
+    right: calc(100% + 10px);
 }
 
 .date-center {
@@ -731,7 +736,11 @@ html {
     font-size: 3rem;
     font-weight: 700;
     color: #8B7355;
-    line-height: 1;
+    line-height: 0.8;
+    text-align: center;
+    min-width: fit-content;
+    display: flex;
+    align-items: center;
 }
 
 .event-lunar {
@@ -1375,19 +1384,19 @@ html {
     }
 
     .date-left::after, .date-right::before {
-        width: 30px;
+        width: 10px;
     }
 
     .date-left::after {
-        left: calc(100% + 10px);
+        left: calc(100% + 12px);
     }
 
     .date-right::before {
-        right: calc(100% + 10px);
+        right: calc(100% + 12px);
     }
 
     .event-date-display {
-        gap: 1rem;
+        gap: 1.5rem;
         margin: 1.5rem 0;
     }
 
@@ -1472,5 +1481,45 @@ html {
     .ampersand {
         font-size: 1.5rem;
         margin: 0 0.3rem;
+    }
+
+    /* Event Date Display for very small screens */
+    .event-date-display {
+        gap: 1rem;
+        margin: 1rem 0;
+    }
+
+    .date-center {
+        font-size: 2rem;
+    }
+
+    .date-left, .date-right {
+        font-size: 0.8rem;
+    }
+
+    .date-left::after, .date-right::before {
+        width: 5px;
+    }
+
+    .date-left::after {
+        left: calc(100% + 8px);
+    }
+
+    .date-right::before {
+        right: calc(100% + 8px);
+    }
+
+    .event-content {
+        padding: 1.2rem 0.8rem;
+    }
+
+    .event-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .event-lunar {
+        font-size: 0.8rem;
+        margin-bottom: 1.2rem;
     }
 }
